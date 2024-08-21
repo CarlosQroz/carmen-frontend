@@ -17,6 +17,11 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 
+//axios 
+import CategoryList from "./scenes/category/categoryList";
+
+
+
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -42,6 +47,7 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />
               <Route path="/periods" element={<FormPeriods />} /> 
+              <Route path="/categorylist" element={<CategoryList />} /> 
             </Routes>
           </main>
         </div>

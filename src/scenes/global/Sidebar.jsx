@@ -124,7 +124,14 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
+            <Item
+              title="Categories"
+              to="/categorylist"
+              icon={<HomeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+                       
             <Typography
               variant="h6"
               color={colors.grey[300]}
