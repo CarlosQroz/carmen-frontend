@@ -126,7 +126,7 @@ const Sidebar = () => {
             />
             <Item
               title="Categories"
-              to="/categorylist"
+              to="/category"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

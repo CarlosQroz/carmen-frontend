@@ -16,6 +16,10 @@ import FormPeriods from "./scenes/periods";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
+//import ObjectList from "./scenes/category/ObjectList";
+import ObjectList from "./scenes/object/objectList";
+import DetailList from "./scenes/detail/detailList"
+
 
 //axios 
 import CategoryList from "./scenes/category/categoryList";
@@ -47,8 +51,10 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />
               <Route path="/periods" element={<FormPeriods />} /> 
-              <Route path="/categorylist" element={<CategoryList />} /> 
-            </Routes>
+              <Route path="/category" element={<CategoryList />} />
+              <Route path="/category/objects/:categoryId" element={<ObjectList />} />
+              <Route path="/category/objects/:objectId/details" element={<DetailList />} />
+              </Routes>
           </main>
         </div>
       </ThemeProvider>
