@@ -1,61 +1,27 @@
-.card-container {
+/* Contenedor del botón */
+.button-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    /* Activa Flexbox */
+    justify-content: flex-end;
+    /* Empuja el contenido hacia la derecha */
+    margin-top: 10px;
+    /* Separación desde el encabezado */
+    margin-bottom: 20px;
+    /* Separación del listado */
 }
 
-.card {
-    width: 200px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    background-color: #fff;
-    transition: transform 0.2s ease-in-out;
-}
-
-.card img {
-    max-width: 100%;
-    height: auto;
+/* Botón estilizado */
+.add-category-button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
     border-radius: 5px;
-}
-
-.card h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card {
-    width: 200px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
+    padding: 10px 20px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card h3 {
-    margin: 10px 0;
-}
-
-button {
-    margin-top: 10px;
+.add-category-button:hover {
+    background-color: #005cbf;
 }
