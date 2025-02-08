@@ -1,22 +1,26 @@
+
 import axiosInstance from "../../axiosConfig";
 
 export const getCategories = async () => {
-  try{
+  try {
     return await axiosInstance.get("/categories");
-
-  }catch (error){
+  } catch (error) {
     console.error("Error al obtener la categoria", error);
     throw error;
   }
 };
 
 // Crear una nueva categoría
-export const createCategory = async (category) => {
+export const createCategory = async (formData) => {
   try {
-    const response = await axiosInstance.post("/categories", category);
+    const response = await axiosInstance.post("/category", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return response.data;
   } catch (error) {
-    console.error("Error al crear la categoría", error);
+    console.error("Error al crear la categoría:", error);
     throw error;
   }
 };

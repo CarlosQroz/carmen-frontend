@@ -66,7 +66,7 @@ const CategoryList = () => {
             key={category.id}
             onClick={() => handleCategoryClick(category.id)}
           >
-            <img src={category.image_url} alt={category.name} />
+            <img src={`http://localhost:3000${category.image_url}`} alt={category.name} />
             <h3>{category.name}</h3>
           </div>
         ))}
