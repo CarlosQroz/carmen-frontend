@@ -20,7 +20,7 @@ import Calendar from "./scenes/calendar/calendar";
 import ObjectList from "./scenes/object/objectList";
 import DetailList from "./scenes/detail/detailList"
 import AddCategory from "./scenes/category/AddCategory";
-
+import AddObject from "./scenes/object/AddObject";
 
 //axios 
 import CategoryList from "./scenes/category/categoryList";
@@ -56,6 +56,10 @@ function App() {
               <Route path="/category/objects/:categoryId" element={<ObjectList />} />
               <Route path="/category/objects/:objectId/details" element={<DetailList />} />
               <Route path="/category/add" element={<AddCategory />} />
+              <Route path="/category/objects/:categoryId/add" element={<AddObject />} />
+
+              
+
               </Routes>
           </main>
         </div>

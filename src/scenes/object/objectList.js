@@ -2,20 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../../axiosConfig"; 
 import "./ObjectList.css"; 
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material"; 
 import Header from "../../components/Header";
+import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+import { useTheme } from "@mui/material/styles";
+import { tokens } from "../../theme";
 
 const ObjectList = () => {
   const { categoryId } = useParams(); 
   const navigate = useNavigate();
   const [objects, setObjects] = useState([]);
-  //const [loading, setLoading] = useState(true);
-  //const [error, setError] = useState(null);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   const handleObjectClick = (objectId) => {
     navigate(`/category/objects/${objectId}/details`);
   };
-  
+
+  const handleAddObject = () => {
+    navigate(`/category/objects/${categoryId}/add`); // Asegúrate de que esta ruta es correcta
+  };
 
   useEffect(() => {
     const fetchObjects = async () => {
@@ -24,9 +30,6 @@ const ObjectList = () => {
         setObjects(response.data);
       } catch (error) {
         console.error("Error al obtener objetos:", error);
-        //setError("No se pudo obtener los objetos.");
-      } finally {
-        //setLoading(false);
       }
     };
 
@@ -34,8 +37,29 @@ const ObjectList = () => {
   }, [categoryId]);
 
   return (
-    <Box m="20px">
-      <Header title="OBJETOS" subtitle={`Objetos de la categoría ${categoryId}`} />
+    <Box className="object-container" m="20px">
+      {/* Encabezado y botón alineados a la derecha */}
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        <Header title="OBJETOS" subtitle={`Objetos de la categoría ${categoryId}`} />
+        <Button
+          onClick={handleAddObject}
+          sx={{
+            backgroundColor: colors.blueAccent[700],
+            color: colors.grey[100],
+            fontSize: "14px",
+            fontWeight: "bold",
+            padding: "10px 20px",
+            width: "auto", // Ajusta el ancho automáticamente
+            flexShrink: 0, // Evita que se expanda
+            marginLeft: "10px" // Espacio entre el texto y el botón
+          }}
+        >
+          <DownloadOutlinedIcon sx={{ mr: "10px" }} />
+          Agregar Objetos
+        </Button>
+      </Box>
+
+      {/* Lista de objetos */}
       <div className="card-container">
         {objects.length > 0 ? (
           objects.map((obj) => (
@@ -51,6 +75,5 @@ const ObjectList = () => {
     </Box>
   );
 };
-
 
 export default ObjectList;
